@@ -1,0 +1,72 @@
+<resources>
+
+    //Login layout
+    <string name="app_name">Runnica</string>
+    <string name="fraseentrada">¿ Preparado ?</string>
+    <string name="email">Email</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="IniciarSesion">Iniciar sesión</string>
+    <string name="olvido">¿ Olvidaste tu contraseña ?</string>
+    <string name="InicioSesionCon">o inicia sesión con</string>
+
+    <string name="nocuenta">¿ No tienes cuenta ?</string>
+    <string name="registro">Registrate</string>
+    <string name="Facebook">Facebook</string>
+    <string name="Google">Google</string>
+    <string name="bienvenida">¡Bienvenido!</string>
+
+    //Registro Layout
+    <string name="Nombre">Nombre usuario</string>
+    <string name="bienvenido">¡¡ Bienvenido !!</string>
+    <string name="Registrarse">Registrate</string>
+    <string name="Repitecontraseña">Repite contraseña</string>
+    <string name="terminos">terminos y condiciones de uso</string>
+    <string name="leido">He leido y acepto los</string>
+
+    //Olvido Layout
+    <string name="olvido_titulo">¿ Olvidaste la constraseña ?</string>
+    <string name="solicito">Solicitar nueva constraseña</string>
+
+    //Inicio Sesion Facebook
+    <string name="facebook_app_id">322202333442941</string>
+    <string name="fb_login_protocol_scheme">fb322202333442941</string>
+    <string name="facebook_client_token">4ccba5780556e97c05311ba9eddeae5c</string>
+
+    //Navigation Bar
+    <string name="titulo_ActionBar">Runnica</string>
+    <string name="Actividad">Actividad</string>
+    <string name="Progreso">Progreso</string>
+    <string name="Cuenta">Cuenta</string>
+    <string name="Perfil">Perfil</string>
+    <string name="CerrarSesion">Cerrar sesión</string>
+    <string name="Restablecer">Restablecer ajustes</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+
+    //Barra deporte seleccionado
+    <string name="Correr">Correr</string>
+    <string name="Andar">Andar</string>
+    <string name="Bicicleta">Bicicleta</string>
+
+    //Errores Registro
+    <string name="contrasediferente">No coinciden las contraseñas introducidas</string>
+    <string name="contrase6caracteres">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="faltandatos">Falta algún dato por rellenar</string>
+    <string name="terminosycondiciones">Tienes que aceptar los términos y condiciones</string>
+
+    //Dialog GPS
+    <string name="GPSTitulo">Permitir acceso a la ubicación</string>
+    <string name="GPSDescripcion">Si desea obtener los datos de su carrera, como la distancia y la velocidad debe tener activo el GPS</string>
+    <string name="GPSActivar">ACTIVAR</string>
+    <string name="GPSIgnorar">CANCELAR</string>
+
+    //Activity Final de actividad
+    <string name="DiaRegistroActividad">Jueves</string>
+    <string name="FechaRegistroActividad">21 de Julio de 2022 10:41 p.m.</string>
+    <string name="Distancia">Distancia (Km)</string>
+    <string name="Tiempo">Tiempo</string>
+    <string name="ritmoTexto">Ritmo Medio (min/Km)</string>
+    <string name="Guardar">Guardar</string>
+
+
+</resources>
