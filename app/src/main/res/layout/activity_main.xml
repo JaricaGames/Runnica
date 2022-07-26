@@ -212,8 +212,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
     <include
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
@@ -227,120 +225,7 @@
         android:layout_gravity="start"
         app:menu="@menu/activity_main_drawer"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/gris_transparente">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="75dp"
-            android:layout_marginHorizontal="15dp"
-            android:padding="10dp"
-            android:background="@color/gris"
-            >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lySeleccionCorrer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvSeleccionCorrer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:text="@string/Correr"
-                    android:textSize="15sp"
-                    android:textColor="@color/navy"/>
-
-                <ImageView
-                    android:id="@+id/iviconoCorrer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_run_small"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lySeleccionAndar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/lySeleccionCorrer"
-                app:layout_constraintStart_toStartOf="parent"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp">
-
-                <TextView
-                    android:id="@+id/tvSeleccionAndar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Andar"
-                    android:textSize="15sp"
-                    android:textColor="@color/navy"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
-
-                <ImageView
-                    android:id="@+id/iviconoAndar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:foregroundGravity="right"
-                    android:src="@drawable/ic_run_small"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-           <androidx.constraintlayout.widget.ConstraintLayout
-               android:id="@+id/lySeleccionBicicleta"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               app:layout_constraintTop_toBottomOf="@+id/lySeleccionAndar"
-               app:layout_constraintStart_toStartOf="parent">
-
-
-
-               <TextView
-                   android:id="@+id/tvSeleccionBicicleta"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="@string/Bicicleta"
-                   android:textSize="15sp"
-                   android:textColor="@color/navy"
-                   app:layout_constraintTop_toTopOf="parent"
-                   app:layout_constraintStart_toStartOf="parent"
-                   />
-
-               <ImageView
-                   android:id="@+id/iviconoBicicleta"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:src="@drawable/ic_run_small"
-                   app:layout_constraintTop_toTopOf="parent"
-                   app:layout_constraintEnd_toEndOf="parent"/>
-
-
-           </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>
 

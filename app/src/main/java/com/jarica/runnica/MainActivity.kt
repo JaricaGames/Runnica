@@ -253,6 +253,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             LayoutInflater.from(this).inflate(R.layout.nav_header_layout, navigationView, false)
         navigationView.addHeaderView((headerView))
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toogle.onOptionsItemSelected(item)) return true
         return super.onOptionsItemSelected(item)
@@ -272,7 +273,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     fun clickDeporte(item: MenuItem){
-        Toast.makeText(this, "Gulag", Toast.LENGTH_SHORT).show()
+        var intent = Intent(this,seleccionActividad_Activity::class.java)
+        startActivity(intent)
     }
 
     /**************FIN DE INICIO DE OBJETOS*************/

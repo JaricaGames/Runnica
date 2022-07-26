@@ -37,9 +37,12 @@
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_main.xml" value="0.75" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_olvido.xml" value="0.3177083333333333" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_registro.xml" value="0.25" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/activity_seleccion_actividad.xml" value="0.81875" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_terminos_ycondiciones.xml" value="0.3177083333333333" />
         <entry key="..\:/Runnica/app/src/main/res/layout/app_bar_actividad.xml" value="0.9525" />
         <entry key="..\:/Runnica/app/src/main/res/layout/app_bar_main.xml" value="0.30277777777777776" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/content_seleccion_actividad.xml" value="0.74625" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/fragment_second.xml" value="0.74625" />
         <entry key="..\:/Runnica/app/src/main/res/layout/nav_header_layout.xml" value="0.324" />
         <entry key="..\:/Runnica/app/src/main/res/menu/activity_main_drawer.xml" value="0.39791666666666664" />
         <entry key="..\:/Runnica/app/src/main/res/menu/seleccionar_deporte.xml" value="1.1108247422680413" />

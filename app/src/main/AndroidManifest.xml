@@ -21,10 +21,8 @@
         android:theme="@style/Theme.Runnica"
         tools:targetApi="31">
         <activity
-            android:name=".seleccionActividad_activity"
-            android:exported="false"
-            android:label="@string/title_activity_seleccion_actividad"
-            android:theme="@style/Theme.Runnica.NoActionBar" />
+            android:name=".seleccionActividad_Activity"
+            android:exported="false" />
         <activity
             android:name=".FinalActividad_Activity"
             android:exported="false" />
