@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:text="Resumen"
                 android:layout_gravity="start"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_regular"
                 android:textColor="@color/navy"/>
 

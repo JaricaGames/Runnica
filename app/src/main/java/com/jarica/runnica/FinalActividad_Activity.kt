@@ -5,11 +5,13 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toolbar
 import androidx.annotation.RequiresApi
-import androidx.core.view.GravityCompat
+import androidx.core.view.get
+import com.google.android.material.appbar.AppBarLayout
 import com.google.firebase.firestore.FirebaseFirestore
-import java.time.LocalDateTime
 
 class FinalActividad_Activity : AppCompatActivity() {
 
@@ -19,6 +21,8 @@ class FinalActividad_Activity : AppCompatActivity() {
     private lateinit var tvFechaActividad: TextView
     private lateinit var tvDiaSemanaActividad: TextView
     private lateinit var btGuardar : Button
+    private lateinit var imDeporteSeleccionado : ImageView
+    private lateinit var appBarFinalActividad : androidx.appcompat.widget.Toolbar
 
     private var distancia:String = ""
     private var ritmoMedio = ""
@@ -42,15 +46,6 @@ class FinalActividad_Activity : AppCompatActivity() {
 
         refencias()
         funcionalidades()
-
-
-
-
-
-
-
-        println(distancia)
-
         actualizarInterfaz()
     }
 
@@ -71,10 +66,15 @@ class FinalActividad_Activity : AppCompatActivity() {
             crearRegistroBBDD()
         }
 
+        var im = appBarFinalActividad.get(0)
+
+        im.setOnClickListener{
+            onBackPressed()
+        }
+
     }
 
     private fun crearRegistroBBDD() {
-
     }
 
     private fun actualizarInterfaz() {
@@ -94,6 +94,9 @@ class FinalActividad_Activity : AppCompatActivity() {
             "SUNDAY" -> tvDiaSemanaActividad.text = "DOMINGO"
         }
 
+        if(Login_Activity.deporteSeleccionado == "Running") imDeporteSeleccionado.setImageResource(R.drawable.ic_run)
+        if(Login_Activity.deporteSeleccionado == "Walk") imDeporteSeleccionado.setImageResource(R.drawable.ic_walk)
+        if(Login_Activity.deporteSeleccionado == "Bike") imDeporteSeleccionado.setImageResource(R.drawable.ic_bike)
 
     }
 
@@ -104,6 +107,9 @@ class FinalActividad_Activity : AppCompatActivity() {
         tvRitmoMedio = findViewById(R.id.tvRitmoFA)
         tvFechaActividad = findViewById(R.id.tvfechaRegistro)
         tvDiaSemanaActividad = findViewById(R.id.tvdiaRegistro)
+        btGuardar = findViewById(R.id.btnGuardar)
+        imDeporteSeleccionado = findViewById(R.id.iviconoActividad)
+        appBarFinalActividad = findViewById(R.id.actionbar)
     }
 
     private fun actualizarCronometro() {

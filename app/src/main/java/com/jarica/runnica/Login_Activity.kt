@@ -55,6 +55,7 @@ class Login_Activity : AppCompatActivity() {
         lateinit var providerSesion: String
         lateinit var nombreUsuario: String
         lateinit var iconoUsuario:Uri
+        lateinit var deporteSeleccionado: String //Running -- Walk ---Bike
     }
 
     //COMIENZO DEL ONCREATE
@@ -115,6 +116,8 @@ class Login_Activity : AppCompatActivity() {
 
 
         }
+
+        deporteSeleccionado = "Running"
 
     }
 

@@ -27,6 +27,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.view.GravityCompat
+import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
 import com.google.android.gms.location.*
@@ -34,11 +35,13 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.gms.maps.model.RoundCap
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.jarica.runnica.Login_Activity.Companion.deporteSeleccionado
 import com.jarica.runnica.Login_Activity.Companion.iconoUsuario
 import com.jarica.runnica.Login_Activity.Companion.nombreUsuario
 import com.jarica.runnica.Login_Activity.Companion.providerSesion
@@ -85,7 +88,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var tvRitmo: TextView
     private lateinit var tvUser: TextView
     private lateinit var sivIcon: Uri
-    private lateinit var deporteSeleccionado : String
 
     //Variables FloatingACtion
     private lateinit var fabPlay: FloatingActionButton
@@ -172,9 +174,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         tvDistancia.text = "0,00"
         tvVelocidad.text = "0,00"
         tvRitmo.text = "0,00"
-        deporteSeleccionado = "Running"
 
         fabPlay.setOnClickListener() {
+
             administrarPlayPausa()
             calcularFecha()
         }
@@ -258,6 +260,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (toogle.onOptionsItemSelected(item)) return true
         return super.onOptionsItemSelected(item)
     }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
@@ -267,14 +270,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+
         menuInflater.inflate(R.menu.seleccionar_deporte, menu)
+
+        var menuitem = menu?.getItem(0)
+        if (menuitem != null) {
+
+            if(deporteSeleccionado == "Running") menuitem.setIcon(R.drawable.ic_run)
+            if(deporteSeleccionado == "Walk") menuitem.setIcon(R.drawable.ic_walk)
+            if(deporteSeleccionado == "Bike") menuitem.setIcon(R.drawable.ic_bike)
+
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
 
     fun clickDeporte(item: MenuItem){
-        var intent = Intent(this,seleccionActividad_Activity::class.java)
-        startActivity(intent)
+        if(tiempotranscurrido < 0L){
+            var intent = Intent(this,seleccionActividad_Activity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     /**************FIN DE INICIO DE OBJETOS*************/
@@ -614,6 +631,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         miMapa.setOnMyLocationButtonClickListener (this)
         miMapa.setOnMyLocationClickListener(this)
+
+
         miMapa.setOnMapLongClickListener { mapaCentrado = false }
         miMapa.setOnMapClickListener {mapaCentrado = false}
 
@@ -641,7 +660,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     }
-
     //Metodo qiue activa la locaclizacion en el mapo
     private fun activarMiLocalizacion() {
 
@@ -686,6 +704,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun calcularVelocidad(distanciaIntervalo: Double) {
 
         velocidad = ((distanciaIntervalo * 1000) / INTERVALO_LOCALIZACION) * 3.6 //Para pasar a KM/h
+        if(velocidad<0.25f) velocidad = 0.0
     }
 
     //Metodo que calcula el ritmo de la carrera
@@ -722,6 +741,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             ))
         val va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1))
         var n_distance =  radioTierra * va2
+        if(n_distance > 1) n_distance = 0.0
 
 
         distancia += n_distance

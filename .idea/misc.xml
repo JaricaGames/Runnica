@@ -16,8 +16,11 @@
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_baseline_directions_run_24.xml" value="0.3975" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_baseline_directions_run_pequeño.xml" value="0.2385" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.2875" />
+        <entry key="..\:/Runnica/app/src/main/res/drawable/ic_bike.xml" value="0.2875" />
+        <entry key="..\:/Runnica/app/src/main/res/drawable/ic_bike_small.xml" value="0.2875" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_candado.xml" value="0.313" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_candado_cerrado.xml" value="0.314" />
+        <entry key="..\:/Runnica/app/src/main/res/drawable/ic_check_small.xml" value="0.2875" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_contrasena.xml" value="0.5095" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_default_user.xml" value="0.2385" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_email.xml" value="0.4495" />
@@ -30,6 +33,8 @@
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_run_small.xml" value="0.2385" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_stop.xml" value="0.313" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_usuario.xml" value="0.5105" />
+        <entry key="..\:/Runnica/app/src/main/res/drawable/ic_walk.xml" value="0.244" />
+        <entry key="..\:/Runnica/app/src/main/res/drawable/ic_walk_small.xml" value="0.244" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/style_image.xml" value="0.205" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_final_actividad.xml" value="0.8681818181818182" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_final_carrera.xml" value="0.955" />
