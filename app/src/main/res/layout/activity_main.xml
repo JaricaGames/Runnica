@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     tools:openDrawer="start"
-    android:id="@+id/drawer_layout">
+    android:id="@+id/drawer_layout"
+    style="@style/Theme.Runnica.NoActionBar">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -139,7 +140,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:context=".MapsActivity"/>
+                app:layout_constraintVertical_bias="0.0"
+                tools:context=".MapsActivity" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -216,14 +218,20 @@
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/Theme.Runnica"/>
+        style="@style/Theme.Runnica.NoActionBar"
+        />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/activity_main_drawer"/>
+        app:menu="@menu/activity_main_drawer"
+        android:backgroundTint="@color/gris"
+        app:itemTextColor="@color/azul_claro_gradient"
+        app:itemIconTint="@color/navy"
+        app:itemRippleColor="@color/navy"
+        app:subheaderColor="@color/navy"/>
 
 
 

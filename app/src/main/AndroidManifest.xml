@@ -18,8 +18,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Runnica"
+        android:theme="@style/Theme.Runnica.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".historial_activity"
+            android:exported="false" />
         <activity
             android:name=".seleccionActividad_Activity"
             android:exported="false" />

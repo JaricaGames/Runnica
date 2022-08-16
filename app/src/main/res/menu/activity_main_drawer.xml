@@ -4,11 +4,11 @@
 
    <group>
        <item android:id="@+id/nav_item_Actividad"
-           android:icon="@drawable/ic_facebook"
+           android:icon="@drawable/ic_run_fast"
            android:title="@string/Actividad"
            />
-       <item android:id="@+id/nav_item_Progreso"
-           android:icon="@drawable/ic_facebook"
+       <item android:id="@+id/nav_item_Historial"
+           android:icon="@drawable/ic_historial"
            android:title="@string/Progreso"/>
 
    </group>
@@ -18,12 +18,14 @@
             <group>
                 <item android:id="@+id/nav_item_Perfil"
                     android:icon="@drawable/ic_facebook"
-                    android:title="@string/Perfil"/>
+                    android:title="@string/Perfil"
+                    />
+
                 <item android:id="@+id/nav_item_RestableceAjustes"
                     android:icon="@drawable/ic_facebook"
                     android:title="@string/Restablecer"/>
                 <item android:id="@+id/nav_item_CerrarSesion"
-                    android:icon="@drawable/ic_facebook"
+                    android:icon="@drawable/ic_logout"
                     android:title="@string/CerrarSesion"/>
             </group>
         </menu>

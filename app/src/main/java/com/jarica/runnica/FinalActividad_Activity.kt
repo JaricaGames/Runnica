@@ -7,11 +7,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toolbar
 import androidx.annotation.RequiresApi
 import androidx.core.view.get
-import com.google.android.material.appbar.AppBarLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.jarica.runnica.Login_Activity.Companion.deporteSeleccionado
+import com.jarica.runnica.Login_Activity.Companion.usuarioEmail
+import java.text.SimpleDateFormat
+import java.util.*
 
 class FinalActividad_Activity : AppCompatActivity() {
 
@@ -24,16 +27,23 @@ class FinalActividad_Activity : AppCompatActivity() {
     private lateinit var imDeporteSeleccionado : ImageView
     private lateinit var appBarFinalActividad : androidx.appcompat.widget.Toolbar
 
-    private var distancia:String = ""
+    //Variables a recibir y enviar
+    private var distancia = ""
     private var ritmoMedio = ""
     private var tiempoTranscurrido = ""
     private var diaSemana = ""
-    private var diaMes = ""
+    private var diaMes = 0
     private var mes = ""
     private var año = ""
     private var hora = ""
+    private var mesNumero = 0
+    private lateinit var idCarrera : String
+    private lateinit var fechaActividad : String
 
-    private lateinit var firebaseFirestoreBBDD:FirebaseFirestore
+
+    private var registroBBDD =  FirebaseFirestore.getInstance()
+
+
 
 
 
@@ -50,24 +60,35 @@ class FinalActividad_Activity : AppCompatActivity() {
     }
 
     private fun funcionalidades() {
-        firebaseFirestoreBBDD =  FirebaseFirestore.getInstance()
 
         val bundle = intent.extras
         distancia = bundle?.getString("distancia").toString()
         ritmoMedio = bundle?.getString("ritmoMedio").toString()
         diaSemana = bundle?.getString("diaSemana").toString()
-        diaMes = bundle?.getString("diaMes").toString()
+        diaMes = bundle?.getInt("diaMes")!!
         mes = bundle?.getString("mes").toString()
         año = bundle?.getString("año").toString()
         hora = bundle?.getString("hora").toString()
+        mesNumero = bundle?.getInt("MesNumero")!!
         tiempoTranscurrido = bundle?.getString("tiempotranscurrido").toString()
 
-        btGuardar.setOnClickListener {
+
+
+
+        var mesNumeroFormato = ""
+        var diaMesFormato = ""
+        diaMesFormato = String.format("%02d",diaMes)
+        mesNumeroFormato = String.format("%02d",mesNumero)
+
+        fechaActividad = año+mesNumeroFormato+diaMesFormato
+        idCarrera = usuarioEmail+año+mesNumeroFormato+diaMesFormato+hora
+
+                btGuardar.setOnClickListener {
             crearRegistroBBDD()
         }
 
+        //Codigo boton felcha tras del actionBar
         var im = appBarFinalActividad.get(0)
-
         im.setOnClickListener{
             onBackPressed()
         }
@@ -75,6 +96,62 @@ class FinalActividad_Activity : AppCompatActivity() {
     }
 
     private fun crearRegistroBBDD() {
+
+
+
+            registroBBDD.collection("Actividades").document(idCarrera).set(
+                hashMapOf(
+                    "usuario" to usuarioEmail,
+                    "deporte" to deporteSeleccionado,
+                    "distancia" to distancia,
+                    "ritmoMedio" to ritmoMedio,
+                    "diaSemana" to diaSemana,
+                    "diaMes" to diaMes,
+                    "mes" to mes,
+                    "hora" to hora,
+                    "tiempoTranscurrido" to tiempoTranscurrido,
+                    "fechaActividad" to fechaActividad
+
+                ))
+
+
+        /*if(deporteSeleccionado == "Walk"){
+
+            registroBBDD.collection("carreras_andando").document(idCarrera).set(
+                hashMapOf(
+                    "usuario" to usuarioEmail,
+                    "deporte" to deporteSeleccionado,
+                    "distancia" to distancia,
+                    "ritmoMedio" to ritmoMedio,
+                    "diaSemana" to diaSemana,
+                    "diaMes" to diaMes,
+                    "mes" to mes,
+                    "hora" to hora,
+                    "tiempoTranscurrido" to tiempoTranscurrido,
+                    "fechaActividad" to fechaActividad
+
+                ))
+        }
+
+        if(deporteSeleccionado == "Bike"){
+
+            registroBBDD.collection("carreras_bici").document(idCarrera).set(
+                hashMapOf(
+                    "usuario" to usuarioEmail,
+                    "deporte" to deporteSeleccionado,
+                    "distancia" to distancia,
+                    "ritmoMedio" to ritmoMedio,
+                    "diaSemana" to diaSemana,
+                    "diaMes" to diaMes,
+                    "mes" to mes,
+                    "hora" to hora,
+                    "tiempoTranscurrido" to tiempoTranscurrido
+
+                ))
+        }*/
+
+        var intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     private fun actualizarInterfaz() {
@@ -83,7 +160,7 @@ class FinalActividad_Activity : AppCompatActivity() {
         tvDistancia.text = roundNumber(distancia,2)
         tvRitmoMedio.text = roundNumber(ritmoMedio, 2)
         tvTiempo.text = tiempoTranscurrido
-        tvFechaActividad.text = diaMes + " de " + mes + " de " + año + " a las " + hora
+        tvFechaActividad.text = diaMes.toString() + " de " + mes + " de " + año + " a las " + hora
         when (diaSemana){
             "MONDAY" -> tvDiaSemanaActividad.text = "LUNES"
             "TUESDAY" -> tvDiaSemanaActividad.text = "MARTES"
@@ -94,9 +171,11 @@ class FinalActividad_Activity : AppCompatActivity() {
             "SUNDAY" -> tvDiaSemanaActividad.text = "DOMINGO"
         }
 
-        if(Login_Activity.deporteSeleccionado == "Running") imDeporteSeleccionado.setImageResource(R.drawable.ic_run)
-        if(Login_Activity.deporteSeleccionado == "Walk") imDeporteSeleccionado.setImageResource(R.drawable.ic_walk)
-        if(Login_Activity.deporteSeleccionado == "Bike") imDeporteSeleccionado.setImageResource(R.drawable.ic_bike)
+        diaSemana = tvDiaSemanaActividad.text as String
+
+        if(deporteSeleccionado == "Running") imDeporteSeleccionado.setImageResource(R.drawable.ic_run)
+        if(deporteSeleccionado == "Walk") imDeporteSeleccionado.setImageResource(R.drawable.ic_walk)
+        if(deporteSeleccionado == "Bike") imDeporteSeleccionado.setImageResource(R.drawable.ic_bike)
 
     }
 

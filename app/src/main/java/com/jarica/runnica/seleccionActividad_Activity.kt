@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.get
 import androidx.core.view.isVisible
 import com.jarica.runnica.Login_Activity.Companion.deporteSeleccionado
 
@@ -19,11 +20,21 @@ class seleccionActividad_Activity : AppCompatActivity() {
         var imiviconoCheckAndar = findViewById<ImageView>(R.id.iviconoCheckAndar)
         var imiviconoCheckBike = findViewById<ImageView>(R.id.iviconoCheckBicicleta)
 
-        var lyCorrer:ConstraintLayout = findViewById(R.id.lySeleccionCorrer)
-        var lyAndar:ConstraintLayout = findViewById(R.id.lySeleccionAndar)
-        var lyBicicleta:ConstraintLayout = findViewById(R.id.lySeleccionBicicleta)
+        var lyCorrer: ConstraintLayout = findViewById(R.id.lySeleccionCorrer)
+        var lyAndar: ConstraintLayout = findViewById(R.id.lySeleccionAndar)
+        var lyBicicleta: ConstraintLayout = findViewById(R.id.lySeleccionBicicleta)
+
+        var appBarSeleccionActividad: androidx.appcompat.widget.Toolbar = findViewById(R.id.actionbar)
+
+
+        //Codigo boton felcha tras del actionBar
+        var im = appBarSeleccionActividad.get(0)
+        im.setOnClickListener {
+            onBackPressed()
+        }
 
         if (deporteSeleccionado == "Running") {
+
             imiviconoCheckCorrer.setVisibility(View.VISIBLE)
             imiviconoCheckAndar.setVisibility(View.INVISIBLE)
             imiviconoCheckBike.setVisibility(View.INVISIBLE)
@@ -45,28 +56,28 @@ class seleccionActividad_Activity : AppCompatActivity() {
 
         }
 
-        lyCorrer.setOnClickListener{
+        lyCorrer.setOnClickListener {
             deporteSeleccionado = "Running"
             volverAtras()
         }
 
-        lyAndar.setOnClickListener{
+        lyAndar.setOnClickListener {
             deporteSeleccionado = "Walk"
             volverAtras()
         }
 
 
-        lyBicicleta.setOnClickListener{
+        lyBicicleta.setOnClickListener {
             deporteSeleccionado = "Bike"
             volverAtras()
         }
 
-
-
     }
 
-    private fun volverAtras() {
-        var intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        private fun volverAtras() {
+            var intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("deporteSeleccionado", deporteSeleccionado)
+            startActivity(intent)
+        }
     }
-}
+

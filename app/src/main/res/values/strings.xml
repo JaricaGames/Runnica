@@ -35,7 +35,7 @@
     //Navigation Bar
     <string name="titulo_ActionBar">Runnica</string>
     <string name="Actividad">Actividad</string>
-    <string name="Progreso">Progreso</string>
+    <string name="Progreso">Historial</string>
     <string name="Cuenta">Cuenta</string>
     <string name="Perfil">Perfil</string>
     <string name="CerrarSesion">Cerrar sesión</string>

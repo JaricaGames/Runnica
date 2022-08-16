@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".FinalActividad_Activity"
     android:background="@color/gris"
+    style="@style/Theme.Runnica.NoActionBar"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -178,7 +179,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnGuardar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -196,7 +197,7 @@
         layout="@layout/app_bar_actividad"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/Theme.Runnica"/>
+        style="@style/Theme.Runnica.NoActionBar"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

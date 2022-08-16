@@ -48,6 +48,7 @@ import com.jarica.runnica.Login_Activity.Companion.providerSesion
 import com.jarica.runnica.Login_Activity.Companion.usuarioEmail
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
@@ -67,9 +68,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private var mesesAño = arrayOf("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
     private var mesActividad = ""
     private var diaSemanaActividad = ""
-    private var diaMesActividad = ""
+    private var diaMesActividad = 0
     private var añoActividad = ""
     private var fechaformateada = ""
+    private var mesNumero = 0
+    private lateinit var fecha: LocalDateTime
+    private lateinit var segundosInicio: String
 
 
     //Variables tolllbar
@@ -96,7 +100,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var fabCandadoAbierto: FloatingActionButton
     private lateinit var fabCandadoCerrado: FloatingActionButton
 
-    //variableGPS
     companion object{
         val REQUIRED_PERMISSIONS_GPS =
             arrayOf(
@@ -171,9 +174,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setSupportActionBar(toolbar) // iniciar tollbar
         tvTiempo.text = "00:00:00"
-        tvDistancia.text = "0,00"
-        tvVelocidad.text = "0,00"
-        tvRitmo.text = "0,00"
+        tvDistancia.text = "0.00"
+        tvVelocidad.text = "0.00"
+        tvRitmo.text = "0.00"
 
         fabPlay.setOnClickListener() {
 
@@ -225,15 +228,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun calcularFecha(){
-        var formatoFechaInicioActividad = DateTimeFormatter.ofPattern("HH:mm")
-        var fecha = LocalDateTime.now()
+        var formatoFechaInicioActividad = DateTimeFormatter.ofPattern("HH:mm:ss")
+        fecha = LocalDateTime.now()
+
         fechaformateada = fecha.format(formatoFechaInicioActividad)
-        diaMesActividad = fecha.dayOfMonth.toString()
+        diaMesActividad = fecha.dayOfMonth.toInt()
         añoActividad = fecha.year.toString()
         mesActividad = mesesAño[fecha.monthValue-1]
         diaSemanaActividad = fecha.dayOfWeek.toString()
+        mesNumero = fecha.monthValue
+        segundosInicio = fecha.second.toString()
 
     }
+
+
 
 
     //Metodos que inicia el navigation View y implementa las opciones
@@ -254,6 +262,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         headerView =
             LayoutInflater.from(this).inflate(R.layout.nav_header_layout, navigationView, false)
         navigationView.addHeaderView((headerView))
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -265,8 +274,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (item.itemId) {
             R.id.nav_item_CerrarSesion -> Logout()
+            R.id.nav_item_Historial -> abrirHistorial()
+            R.id.nav_item_Actividad -> onBackPressed()
         }
         return true
+    }
+
+    private fun abrirHistorial() {
+        var intent = Intent(this, historial_activity::class.java)
+        startActivity(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -434,6 +450,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         intent.putExtra("mes", mesActividad)
         intent.putExtra("año", añoActividad)
         intent.putExtra("hora", fechaformateada)
+        intent.putExtra("MesNumero", mesNumero)
+        intent.putExtra("segundosInicio", segundosInicio)
         startActivity(intent)
 
         tiempotranscurrido = 0
@@ -442,9 +460,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         segundos = 0
         // actualizarCronometro()
         isGPSActive = true
-        tvDistancia.text = "0,00"
-        tvVelocidad.text = "0,00"
-        tvRitmo.text = "0,00"
+        tvDistancia.text = "0.00"
+        tvVelocidad.text = "0.00"
+        tvRitmo.text = "0.00"
         isGPSActive = true
 
     }
@@ -595,6 +613,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 //Dicujado de la polilinea
                 var nuevaPosicion = LatLng(new_latitude,new_longitude)
                 (listaPuntos as ArrayList<LatLng>).add(nuevaPosicion)
+                println(listaPuntos)
                 crearPolilinea(listaPuntos)
 
 
@@ -682,7 +701,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     //Metodo que centra el mapa en la posicion del movil
     private fun centrarMapa(latInicial: Double, longInicial: Double) {
         val posicionMapa = LatLng(latInicial, longInicial)
-        miMapa.animateCamera(CameraUpdateFactory.newLatLngZoom(posicionMapa, 18f), 1000, null)
+        miMapa.animateCamera(CameraUpdateFactory.newLatLngZoom(posicionMapa, 17f), 1000, null)
 
     }
 
@@ -704,7 +723,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun calcularVelocidad(distanciaIntervalo: Double) {
 
         velocidad = ((distanciaIntervalo * 1000) / INTERVALO_LOCALIZACION) * 3.6 //Para pasar a KM/h
-        if(velocidad<0.25f) velocidad = 0.0
+        if(velocidad<0.25f) velocidad = 0.00
     }
 
     //Metodo que calcula el ritmo de la carrera
@@ -749,12 +768,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
-
     //Metodo onStart
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         recargarusuario()
-
     }
 
 

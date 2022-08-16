@@ -26,26 +26,32 @@
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_email.xml" value="0.4495" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_facebook.xml" value="0.5095" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_google.xml" value="0.5095" />
+        <entry key="..\:/Runnica/app/src/main/res/drawable/ic_historial.xml" value="0.2825" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_launcher_background.xml" value="0.314" />
+        <entry key="..\:/Runnica/app/src/main/res/drawable/ic_logout.xml" value="0.2825" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_pause.xml" value="0.313" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_play.xml" value="0.313" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_run.xml" value="0.2385" />
+        <entry key="..\:/Runnica/app/src/main/res/drawable/ic_run_fast.xml" value="0.253" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_run_small.xml" value="0.2385" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_stop.xml" value="0.313" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_usuario.xml" value="0.5105" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_walk.xml" value="0.244" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/ic_walk_small.xml" value="0.244" />
         <entry key="..\:/Runnica/app/src/main/res/drawable/style_image.xml" value="0.205" />
-        <entry key="..\:/Runnica/app/src/main/res/layout/activity_final_actividad.xml" value="0.8681818181818182" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/activity_final_actividad.xml" value="0.28003420265070544" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_final_carrera.xml" value="0.955" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/activity_historial.xml" value="0.33" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="..\:/Runnica/app/src/main/res/layout/activity_main.xml" value="0.75" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_olvido.xml" value="0.3177083333333333" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_registro.xml" value="0.25" />
-        <entry key="..\:/Runnica/app/src/main/res/layout/activity_seleccion_actividad.xml" value="0.81875" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/activity_seleccion_actividad.xml" value="0.33" />
         <entry key="..\:/Runnica/app/src/main/res/layout/activity_terminos_ycondiciones.xml" value="0.3177083333333333" />
-        <entry key="..\:/Runnica/app/src/main/res/layout/app_bar_actividad.xml" value="0.9525" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/app_bar_actividad.xml" value="0.504863813229572" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/app_bar_atras.xml" value="0.3257802479692176" />
         <entry key="..\:/Runnica/app/src/main/res/layout/app_bar_main.xml" value="0.30277777777777776" />
+        <entry key="..\:/Runnica/app/src/main/res/layout/card_view_historial.xml" value="0.33" />
         <entry key="..\:/Runnica/app/src/main/res/layout/content_seleccion_actividad.xml" value="0.74625" />
         <entry key="..\:/Runnica/app/src/main/res/layout/fragment_second.xml" value="0.74625" />
         <entry key="..\:/Runnica/app/src/main/res/layout/nav_header_layout.xml" value="0.324" />
